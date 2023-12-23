@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://wyu1hv8kch3o"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/Items/Item.gd" id="1_61k7b"]
+
+[node name="Item" type="RigidBody2D"]
+lock_rotation = true
+linear_damp = 10.0
+script = ExtResource("1_61k7b")

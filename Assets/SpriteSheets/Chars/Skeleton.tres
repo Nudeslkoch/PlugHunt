@@ -1,0 +1,57 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://jrg47bkvulsc"]
+
+[ext_resource type="Texture2D" uid="uid://dg77nlp1lkgwi" path="res://Assets/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Base/Run/Run-Sheet.png" id="1_yf2e5"]
+[ext_resource type="Texture2D" uid="uid://t0yog2sgfwob" path="res://Assets/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Base/Idle/Idle-Sheet.png" id="2_47dfp"]
+[ext_resource type="Texture2D" uid="uid://4ra1crkcq870" path="res://Assets/Anims/SkeletonAnimAtlas.png" id="3_cm8ey"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta388"]
+texture = ExtResource("2_47dfp")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ijteg"]
+texture = ExtResource("1_yf2e5")
+margins = Vector2i(16, 0)
+separation = Vector2i(32, 0)
+texture_region_size = Vector2i(32, 32)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_adw4s"]
+texture = ExtResource("3_cm8ey")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/3 = SubResource("TileSetAtlasSource_ta388")
+sources/4 = SubResource("TileSetAtlasSource_ijteg")
+sources/5 = SubResource("TileSetAtlasSource_adw4s")
