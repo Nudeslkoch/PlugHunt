@@ -34,12 +34,11 @@ offset_right = 87.0
 offset_bottom = 31.0
 text = "Join"
 
-[node name="TextEdit" type="LineEdit" parent="."]
+[node name="TextEdit" type="TextEdit" parent="."]
 offset_left = 100.0
 offset_top = 1.0
 offset_right = 279.0
 offset_bottom = 31.0
-text = "localhost"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

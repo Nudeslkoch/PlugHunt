@@ -6,13 +6,13 @@ func _enter_tree():
 		set_multiplayer_authority(1)
 	else:
 		var id = str(name)
-		var foo = id.split("_")
-		for a in foo:
-			print(a)
 		set_multiplayer_authority(int(id.split("_")[1]))
 
 func _ready():
-	pass
+	if not is_multiplayer_authority():
+		$Camera2D.queue_free()
+
+	
 
 func _process(_delta):
 	pass

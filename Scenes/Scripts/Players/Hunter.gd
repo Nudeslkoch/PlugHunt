@@ -3,11 +3,6 @@ extends Player
 @onready var animation_player = $Animations/AnimationPlayer
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 func player_movement():
 	super.player_movement()
 	var currentInput = get_input()

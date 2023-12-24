@@ -59,8 +59,7 @@ func _on_join_pressed():
 func add_player(id:int):
 	var prop = prop_prefab.instantiate()
 	prop.name = "Prop_" + str(id)
-	add_child.call_deferred(prop)
-	
+	add_child(prop)
 	pass
 	
 func remove_player(id:int):

@@ -19,7 +19,9 @@ func _ready():
 	init_raycast()
 	
 func set_local_player(player_node):
+	print(name + " updated local_plaer to: " + str(player_node))
 	local_player = player_node
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):	
 	# check for line of sight to hunter, disable if not
@@ -34,8 +36,6 @@ func _process(_delta):
 func set_visibility(new_visibility):
 	item_sprite.visible = new_visibility
 
-
-	
 func init_raycast():
 	ray_cast = RayCast2D.new()
 	ray_cast.set_collision_mask_value(8, true)
