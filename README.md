@@ -7,4 +7,4 @@ Ideally this is played on a voice call or similar, and the hunter can try to use
 
 
 # Attribution
-Uses [gspot] (https://github.com/deadpixelsociety/gspot by [deadpixelsociety](https://github.com/deadpixelsociety) for toy communication.
+Uses [gspot](https://github.com/deadpixelsociety/gspot) by [deadpixelsociety](https://github.com/deadpixelsociety) for toy communication.
