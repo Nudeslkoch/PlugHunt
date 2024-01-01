@@ -1,5 +1,7 @@
 extends PropItem
 @onready var hunter = $/root/World/Hunter
+@onready var vibration_manager = $/root/World/%VibrationManager
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super._ready()
@@ -25,8 +27,9 @@ func _process(_delta):
 func do_the_bzz():
 	var adjusted_position = global_position + sprite_size * 0.5
 	var distance = adjusted_position.distance_to(hunter.global_position)
-	distance -= 15
+	print("distance: " + str(distance))
+	distance = clampi(distance -15, 0 , 150)
 	if distance > 150:
-		print("no")
+		vibration_manager.set_new_strength(0)
 	else:
-		print(distance/150)
+		vibration_manager.set_new_strength(100 - distance/1.5)
