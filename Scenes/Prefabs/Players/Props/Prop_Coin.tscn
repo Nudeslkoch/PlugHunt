@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bx6s1vyb5xnoa"]
+
+[ext_resource type="Texture2D" uid="uid://df0lesktfs32s" path="res://Assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_e1bs8"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Players/Prop.gd" id="1_esfgm"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Players/ItemSpriteProp.gd" id="2_466ag"]
+[ext_resource type="Material" uid="uid://curjq4xaw44d8" path="res://Assets/HiddenMaterial.tres" id="3_qwvlr"]
+[ext_resource type="Texture2D" uid="uid://c1xqehf00enyu" path="res://Assets/LightSprite.png" id="4_sphns"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82xpu"]
+atlas = ExtResource("1_e1bs8")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_whxwb"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Prop" type="CharacterBody2D"]
+collision_layer = 129
+collision_mask = 129
+script = ExtResource("1_esfgm")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(6, 5, 3, 7, 3, 11, 6, 13, 6, 14, 12, 11, 13, 11, 13, 7, 6, 4)
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_82xpu")
+centered = false
+script = ExtResource("2_466ag")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_whxwb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-16.25, -3.75)
+scale = Vector2(1.25, 1.25)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Light" type="PointLight2D" parent="."]
+material = ExtResource("3_qwvlr")
+position = Vector2(1.25, 1.25)
+enabled = false
+color = Color(0, 0, 1, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("4_sphns")
+texture_scale = 0.5

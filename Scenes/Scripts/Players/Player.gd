@@ -1,6 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var light:PointLight2D = $Light
+
+
 func _enter_tree():
 	if name == "Hunter":
 		set_multiplayer_authority(1)
@@ -11,7 +14,8 @@ func _enter_tree():
 func _ready():
 	if not is_multiplayer_authority():
 		$Camera2D.queue_free()
-
+	else:
+		set_light_status(true)
 	
 
 func _process(_delta):
@@ -37,4 +41,6 @@ func player_movement():
 			collision.get_collider().apply_central_impulse(-collision.get_normal() * 10)
 			
 
-
+func set_light_status(new_state:bool):
+	light.enabled = new_state
+	

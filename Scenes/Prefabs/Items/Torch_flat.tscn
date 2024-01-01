@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://7gjwu2b8mv7x"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/Items/Item.gd" id="1_mlf0v"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Items/ItemSprite.gd" id="1_mlf0v"]
 [ext_resource type="Texture2D" uid="uid://df0lesktfs32s" path="res://Assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_tlgq6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uslj1"]
@@ -15,7 +15,6 @@ properties/0/replication_mode = 1
 [node name="Item" type="RigidBody2D"]
 sleeping = true
 lock_rotation = true
-script = ExtResource("1_mlf0v")
 
 [node name="Collision0" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(2, 3, 0, 4, 0, 15, 3, 14, 4, 14, 5, 9, 6, 9, 2, 2)
@@ -23,6 +22,7 @@ polygon = PackedVector2Array(2, 3, 0, 4, 0, 15, 3, 14, 4, 14, 5, 9, 6, 9, 2, 2)
 [node name="ItemSprite" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_uslj1")
 centered = false
+script = ExtResource("1_mlf0v")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_5st16")

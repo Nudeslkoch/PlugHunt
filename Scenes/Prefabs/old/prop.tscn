@@ -24,8 +24,8 @@ position_smoothing_enabled = true
 
 [node name="Light" type="PointLight2D" parent="."]
 position = Vector2(1.25, 1.25)
+enabled = false
 energy = 0.5
-shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_j20rm")
 texture_scale = 0.5

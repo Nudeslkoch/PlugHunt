@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1xqehf00enyu" path="res://Assets/LightSprite.png" id="4_u2ckv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqls5"]
-size = Vector2(22, 30)
+size = Vector2(22, 17.25)
 
 [sub_resource type="Animation" id="Animation_khxd1"]
 resource_name = "Idle"
@@ -204,7 +204,8 @@ motion_mode = 1
 script = ExtResource("1_b67oo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 7.375)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lqls5")
 
 [node name="Animations" type="Node2D" parent="."]
@@ -213,7 +214,8 @@ shape = SubResource("RectangleShape2D_lqls5")
 texture_filter = 1
 material = ExtResource("2_vwxeo")
 sprite_frames = ExtResource("2_o78ys")
-animation = &"Idle"
+animation = &"Walk"
+frame_progress = 0.437543
 
 [node name="Hands" type="Sprite2D" parent="Animations/Body"]
 texture_filter = 1
@@ -239,6 +241,7 @@ position_smoothing_enabled = true
 
 [node name="Light" type="PointLight2D" parent="."]
 position = Vector2(1.25, 1.25)
+enabled = false
 energy = 0.5
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
