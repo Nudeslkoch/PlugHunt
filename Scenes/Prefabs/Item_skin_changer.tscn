@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccxtiiyiyxjo5"]
+
+[ext_resource type="SpriteFrames" uid="uid://6ivl7icjqhtm" path="res://Assets/Anims/ItemAnims.tres" id="1_jtmm0"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Items/Item_Skin_Changer.gd" id="2_60vrp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ts78u"]
+size = Vector2(12, 12)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1cv2e"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("ItemSprite:frame")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Item" type="RigidBody2D"]
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_ts78u")
+
+[node name="ItemSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_jtmm0")
+speed_scale = 0.0
+centered = false
+script = ExtResource("2_60vrp")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_1cv2e")

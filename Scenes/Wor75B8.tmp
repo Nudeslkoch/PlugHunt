@@ -53,7 +53,7 @@ text = "localhost"
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Scenes/Prefabs/Players/hunter.tscn", "res://Scenes/Prefabs/Players/Prop_Player.tscn", "res://Scenes/Prefabs/Item_skin_changer.tscn", "res://Scenes/Prefabs/old/Props/Prop_Brazier1.tscn")
+_spawnable_scenes = PackedStringArray("res://Scenes/Prefabs/Players/hunter.tscn", "res://Scenes/Prefabs/Players/Prop_Player.tscn", "res://Scenes/Prefabs/Item_skin_changer.tscn")
 spawn_path = NodePath("..")
 
 [node name="GSControlPanel" parent="." instance=ExtResource("5_8ewrr")]

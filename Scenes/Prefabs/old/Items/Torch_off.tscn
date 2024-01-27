@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsnxi2o4bwopk"]
+
+[ext_resource type="Texture2D" uid="uid://df0lesktfs32s" path="res://Assets/Anims/Dungeon_Tileset.png" id="1_o6y85"]
+[ext_resource type="Script" path="res://Scenes/Prefabs/old/ItemSprite.gd" id="2_cdlcl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixgqn"]
+atlas = ExtResource("1_o6y85")
+region = Rect2(32, 144, 16, 16)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_h47im"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Item" type="RigidBody2D"]
+sleeping = true
+lock_rotation = true
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(5, 8, 7, 14, 7, 15, 11, 10, 12, 10, 11, 8, 11, 7, 5, 7)
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ixgqn")
+centered = false
+script = ExtResource("2_cdlcl")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_h47im")

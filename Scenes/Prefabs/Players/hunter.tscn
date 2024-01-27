@@ -214,8 +214,7 @@ shape = SubResource("RectangleShape2D_lqls5")
 texture_filter = 1
 material = ExtResource("2_vwxeo")
 sprite_frames = ExtResource("2_o78ys")
-animation = &"Walk"
-frame_progress = 0.437543
+animation = &"Idle"
 
 [node name="Hands" type="Sprite2D" parent="Animations/Body"]
 texture_filter = 1

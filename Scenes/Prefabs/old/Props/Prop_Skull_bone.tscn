@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnkyswwm66ukr"]
+
+[ext_resource type="Texture2D" uid="uid://df0lesktfs32s" path="res://Assets/Anims/Dungeon_Tileset.png" id="1_28adp"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Players/Prop.gd" id="1_la641"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Players/ItemSpriteProp.gd" id="3_f1vhx"]
+[ext_resource type="Material" uid="uid://curjq4xaw44d8" path="res://Assets/HiddenMaterial.tres" id="3_on27i"]
+[ext_resource type="Texture2D" uid="uid://c1xqehf00enyu" path="res://Assets/LightSprite.png" id="4_1styc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sonu"]
+atlas = ExtResource("1_28adp")
+region = Rect2(112, 112, 16, 16)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_abnra"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Prop" type="CharacterBody2D"]
+collision_layer = 129
+collision_mask = 129
+script = ExtResource("1_la641")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(7, 2, 7, 8, 7, 9, 13, 7, 14, 7, 12, 2, 12, 1, 7, 1)
+
+[node name="Collision1" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(3, 9, 2, 11, 2, 12, 6, 14, 6, 15, 8, 13, 9, 13, 3, 8)
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0sonu")
+centered = false
+script = ExtResource("3_f1vhx")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_abnra")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-16.25, -3.75)
+scale = Vector2(1.25, 1.25)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Light" type="PointLight2D" parent="."]
+material = ExtResource("3_on27i")
+position = Vector2(1.25, 1.25)
+enabled = false
+color = Color(0, 0, 1, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("4_1styc")
+texture_scale = 0.5

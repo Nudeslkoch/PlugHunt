@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=11 format=3 uid="uid://vje5l8cdbj1l"]
 
-[ext_resource type="Texture2D" uid="uid://df0lesktfs32s" path="res://Assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_hqs5a"]
+[ext_resource type="Texture2D" uid="uid://df0lesktfs32s" path="res://Assets/Anims/Dungeon_Tileset.png" id="1_hqs5a"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ocl0e"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

@@ -4,29 +4,11 @@ var peer = ENetMultiplayerPeer.new()
 @onready var multiplayer_spawner = $MultiplayerSpawner
 @onready var text_edit = $TextEdit
 
-#const one_prop_prefab = preload("res://Scenes/Prefabs/Players/Props/Prop_Brazier1.tscn")
+
 
 const hunter_prefab = preload("res://Scenes/Prefabs/Players/hunter.tscn")
-const prop_prefabs:Array = [preload("res://Scenes/Prefabs/Players/Props/Prop_Brazier1.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Brazier1_lit.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Brazier2.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Brazier2_lit.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Chest1.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Chest2.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Chest3.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Chest4.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Chest5.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Chest.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Coin.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Health.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Health_small.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Key.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Mana.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Mana_small.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Skull_bone.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Torch.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Torch_flat.tscn"),
-preload("res://Scenes/Prefabs/Players/Props/Prop_Torch_off.tscn")]
+const prop_prefab = preload("res://Scenes/Prefabs/Players/Prop_Player.tscn")
+#const prop_prefab = preload("res://Scenes/Prefabs/old/Props/Prop_Brazier1.tscn")
 
 @onready var tile_map = $TileMap
 @onready var host = $Host
@@ -77,13 +59,16 @@ func _on_join_pressed():
 
 
 func add_player(id:int):
-	var prop = prop_prefabs.pick_random().instantiate()
+	var prop = prop_prefab.instantiate()
 	prop.name = "Prop_" + str(id)
 	add_child(prop)
+	
+	
 	
 	var cell = tile_map.get_used_cells(0).pick_random()
 	var new_position = tile_map.to_global(tile_map.map_to_local(cell))
 	prop.rpc_id(id,"set_starting_position",new_position)
+	prop.get_node_or_null("ItemSprite").rpc_id(id,"set_skin",(randi_range(0,19)))
 	
 	for item in item_list:
 		item.rpc_id(id, "set_local_player",prop.get_path())

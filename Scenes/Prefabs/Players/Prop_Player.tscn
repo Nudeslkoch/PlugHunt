@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bruxs2y5fn6ek"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/Players/Prop.gd" id="1_r0pp5"]
+[ext_resource type="SpriteFrames" uid="uid://6ivl7icjqhtm" path="res://Assets/Anims/ItemAnims.tres" id="2_lc7t1"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Players/ItemSpriteProp.gd" id="3_8xpvi"]
+[ext_resource type="Material" uid="uid://curjq4xaw44d8" path="res://Assets/HiddenMaterial.tres" id="4_bhyot"]
+[ext_resource type="Texture2D" uid="uid://c1xqehf00enyu" path="res://Assets/LightSprite.png" id="5_cgg3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hiako"]
+size = Vector2(12, 12)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_8ukml"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("ItemSprite:frame")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Prop" type="CharacterBody2D"]
+collision_layer = 129
+collision_mask = 129
+script = ExtResource("1_r0pp5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_hiako")
+
+[node name="ItemSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_lc7t1")
+speed_scale = 0.0
+script = ExtResource("3_8xpvi")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_8ukml")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-16.25, -3.75)
+scale = Vector2(1.25, 1.25)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Light" type="PointLight2D" parent="."]
+material = ExtResource("4_bhyot")
+position = Vector2(1.25, 1.25)
+enabled = false
+color = Color(0, 0, 1, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("5_cgg3g")
+texture_scale = 0.5
